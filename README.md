@@ -37,3 +37,38 @@
 然后再说一说本项目采用的组件化思想，本项目直接将所有的可复用组件放在一个大模块（`components/component`）里面，需要用的时候只需要分别引用这个`component`里的三大文件。`components/base`用纯js方法对模块进行了封装，利用`component_id`对各个组件的数据进行分割，这样只需要在`wxml`中将`component_id`与对应的template进行捆绑，即可实现数据作用域的组件化，相当于把`wepy`中的预处理操作手动实现了。
 
 ![本项目处理过程](./img/fig_1.png)
+
+### 交互改进
+
+一个小地方需要注意，就是在用户第一次进入小白健康的时候，需要选择个人信息，笔者在填年龄那一节时，发现无论前一步骤选的是“欧巴”还是“大叔”，年龄的年份选择框总是从1975年开始，这里可以稍微优化下，比如用户选了“欧巴”，年份就从1990年开始；用户选了“大叔”，就从1980年开始。
+
+### 附录-1 一份符合JSdoc规范的样例代码
+
+```javascript
+/**
+ * Book类，代表一个书本.
+ * @constructor
+ * @param {string} title - 书本的标题.
+ * @param {string} author - 书本的作者.
+ */
+function Book(title, author) {
+    this.title=title;
+    this.author=author;
+}
+Book.prototype={
+    /**
+     * 获取书本的标题
+     * @returns {string|*}
+     */
+    getTitle:function(){
+        return this.title;
+    },
+    /**
+     * 设置书本的页数
+     * @param pageNum {number} 页数
+     */
+    setPageNum:function(pageNum){
+        this.pageNum=pageNum;
+    }
+};
+```
