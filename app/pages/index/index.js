@@ -4,13 +4,38 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: '爱过的人都像你',
+    username: '呵呵益达哒',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    listContent: [
+      {
+        date: '今天', // a Date String
+        content: [{ // Array of events
+            type: 'image', // could be image/video/pure text/share
+            img: '/images/user-bg.jpg',
+            text: '这里风景很不错啊这里风景很不错啊这里风景很不错啊这里风景很不错啊这里风景很不错啊这里风景很不错啊这里风景很不错啊这里风景很不错啊'
+          }, {
+            type: 'share',
+            shareImg: '/images/user-bg.jpg',
+            shareText: '无法释怀的十大旅游胜地',
+            text: '国庆就去这里玩了~'
+          }
+        ]
+      }, {
+        date: '昨天', // a Date String
+        content: [{ // Array of events
+          type: 'image', // could be image/video/pure text/share
+          img: '/images/user-bg.jpg',
+          text: '这里风景很不错啊这里风景很不错啊这里风景很不错啊这'
+        }, { // Array of events
+          type: 'image', // could be image/video/pure text/share
+          img: '/images/user-bg.jpg',
+          text: '这里风景很不错啊这里风景很不错啊这'
+        }]
+      }
+    ]
   },
   onLoad: function () {
     if (app.globalData.userInfo) {

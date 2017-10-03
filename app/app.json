@@ -4,8 +4,9 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "rgb(56, 57, 61)",
+    "navigationBarTitleText": "我的相册",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh": true
   }
 }

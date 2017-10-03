@@ -1,13 +1,33 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <image mode='widthFix' src='/images/user-bg.jpg' class='user-img'></image>
+  <view class='content-container'>
+    <view class='user-info'>
+      <view class='user-block'>
+        <image class='user-avatar' src='/images/avatar.jpg' mode='aspectFill'></image>
+        <view class='user-name'>{{username}}</view>
+      </view>
+      <view class='user-motto'>{{motto}}</view>
+    </view>
+    <view class='content-list'>
+      <view wx:for="{{listContent}}" class='list-detail' wx:for-item="dayItem" wx:key="index">
+        <view class='list-time'>{{dayItem.date}}</view>
+        <view class='list-content'>
+          <view wx:for="{{dayItem.content}}" class='list-container' wx:key="index">
+            <view wx:if="{{item.type=='image'}}" class='list-wrp'>
+              <image class='list-img' src='{{item.img}}'></image>
+              <view class='list-text'>{{item.text}}</view>
+            </view>
+            <view wx:elif="{{item.type=='share'}}" class='list-wrp share-wrp'>
+              <view class='share-comment'>{{item.text}}</view>
+              <view class='share-info'>
+                <image class='list-img share-img' src='{{item.shareImg}}'></image>
+                <view class='list-text share-text'>{{item.shareText}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>
