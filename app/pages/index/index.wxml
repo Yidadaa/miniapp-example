@@ -4,14 +4,17 @@
   <view class='content-container'>
     <view class='user-info'>
       <view class='user-block'>
-        <image class='user-avatar' src='/images/avatar.jpg' mode='aspectFill'></image>
+        <image class='user-avatar' src='{{userImg}}' mode='aspectFill'></image>
         <view class='user-name'>{{username}}</view>
       </view>
       <view class='user-motto'>{{motto}}</view>
     </view>
     <view class='content-list'>
       <view wx:for="{{listContent}}" class='list-detail' wx:for-item="dayItem" wx:key="index">
-        <view class='list-time'>{{dayItem.date}}</view>
+        <view class='list-time'>
+          <text>{{dayItem.date.day}}</text>
+          <text class='date-month'>{{dayItem.date.month}}月</text>
+        </view>
         <view class='list-content'>
           <view wx:for="{{dayItem.content}}" class='list-container' wx:key="index">
             <view wx:if="{{item.type=='image'}}" class='list-wrp'>
