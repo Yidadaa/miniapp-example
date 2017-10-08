@@ -1,31 +1,34 @@
 <!--index.wxml-->
 <view class="container">
-  <image mode='widthFix' src='/images/user-bg.jpg' class='user-img'></image>
+  <image mode='widthFix' src='/images/user-bg.jpg' class='user-img'/>
   <view class='content-container'>
     <view class='user-info'>
       <view class='user-block'>
-        <image class='user-avatar' src='{{userImg}}' mode='aspectFill'></image>
-        <view class='user-name'>{{username}}</view>
+        <image class='user-avatar' src='{{ userImg }}' mode='aspectFill'/>
+        <text class='user-name'>{{ username }}</text>
       </view>
-      <view class='user-motto'>{{motto}}</view>
+      <view class='user-motto'>{{ motto }}</view>
     </view>
+
     <view class='content-list'>
-      <view wx:for="{{listContent}}" class='list-detail' wx:for-item="dayItem" wx:key="index">
+      <view wx:for="{{ listContent }}" class='list-detail' wx:for-item="dayItem" wx:key="index">
         <view class='list-time'>
-          <text>{{dayItem.date.day}}</text>
-          <text class='date-month'>{{dayItem.date.month}}月</text>
+          <text>{{ dayItem.date.day }}</text>
+          <text class='date-month'>{{ dayItem.date.month }}月</text>
         </view>
+
         <view class='list-content'>
-          <view wx:for="{{dayItem.content}}" class='list-container' wx:key="index">
-            <view wx:if="{{item.type=='image'}}" class='list-wrp'>
-              <image class='list-img' src='{{item.img}}'></image>
-              <view class='list-text'>{{item.text}}</view>
+          <view wx:for="{{ dayItem.content }}" class='list-container' wx:key="index">
+            <view wx:if="{{ item.type == 'image' }}" class='list-wrp'>
+              <image class='list-img' src='{{ item.img }}'/>
+              <text class='list-text'>{{ item.text }}</text>
             </view>
-            <view wx:elif="{{item.type=='share'}}" class='list-wrp share-wrp'>
-              <view class='share-comment'>{{item.text}}</view>
+
+            <view wx:elif="{{ item.type == 'share' }}" class='list-wrp share-wrp'>
+              <text class='share-comment'>{{ item.text }}</text>
               <view class='share-info'>
-                <image class='list-img share-img' src='{{item.shareImg}}'></image>
-                <view class='list-text share-text'>{{item.shareText}}</view>
+                <image class='list-img share-img' src='{{ item.shareImg }}'/>
+                <text class='list-text share-text'>{{ item.shareText }}</text>
               </view>
             </view>
           </view>
