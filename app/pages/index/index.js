@@ -3,7 +3,7 @@
  */
 const app = getApp()
 const fakeData = require('../../utils/mock')
-const {rand} = require('../../utils/utils')
+const { rand } = require('../../utils/utils')
 
 Page({
   data: {
@@ -13,6 +13,7 @@ Page({
     hasUserInfo: false,
     listContent: []
   },
+
   onLoad: function () {
     // 加载用户数据以及模拟数据
     if (app.globalData.userInfo) {
@@ -35,6 +36,7 @@ Page({
         }
       })
     }
+
     setTimeout(() => {
       // 模拟网络环境
       this.setData({

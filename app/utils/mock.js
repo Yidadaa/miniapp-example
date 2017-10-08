@@ -2,7 +2,7 @@
  * @file 生成模拟数据
  */
 
-const {rand} = require('./utils')
+const { rand } = require('./utils')
 
 const imgUrl = '/images/user-bg.jpg'
 const fakeText = '这里风景很不错'
